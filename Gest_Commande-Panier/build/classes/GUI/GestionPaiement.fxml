@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="GUI.GestionPaiementController">
+   <children>
+      <TextField id="id_membreText" layoutX="216.0" layoutY="53.0" promptText="Id_Membre" />
+      <Label layoutX="99.0" layoutY="57.0" text="Id_Membre" />
+      <TextField id="Num _carteText" layoutX="209.0" layoutY="126.0" promptText="Prenom" />
+      <Label layoutX="99.0" layoutY="130.0" text="Num Carte" />
+      <Button id="ok_btn" layoutX="274.0" layoutY="221.0" mnemonicParsing="false" text="Ok" />
+      <TableView layoutX="398.0" layoutY="47.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
