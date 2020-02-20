@@ -93,15 +93,17 @@ public class CommandeService implements ICommandeService {
     public List<Commande> AfficherCommande() throws SQLException {
     List<Commande> arr=new ArrayList<>();
     ste=con.createStatement();
-    ResultSet rs=ste.executeQuery("select * from commande");
+    ResultSet rs=ste.executeQuery("select c.*,m.Nom_Membre,m.Prenom_Membre from commande c ,membre m where c.Id_Membre= m.Id_Membre");
      while (rs.next()) {                
                int Id_Commande=rs.getInt("Id_Commande");
                Date Date_Commande=rs.getDate("Date_Commande");
+               String Nom=rs.getString("m.Nom_Membre");
+               String Prenom=rs.getString("m.Prenom_Membre");
                Double Prix_Total=rs.getDouble("Prix_Total");
                int Id_Membre=rs.getInt("Id_Membre");
 //               System.out.println("la Commande est "+Id_Commande+" est Date = "+Date_Commande+" Age = "+
 //                        res.getString("age"));
-               Commande c=new Commande(Id_Commande, Date_Commande, Prix_Total, Id_Membre);
+               Commande c=new Commande(Id_Commande,Nom,Prenom, Date_Commande, Prix_Total, Id_Membre);
                arr.add(c);
      }
     return arr;
@@ -110,15 +112,17 @@ public class CommandeService implements ICommandeService {
     public List<Commande> TrierCommande() throws SQLException {
     List<Commande> arr=new ArrayList<>();
     ste=con.createStatement();
-    ResultSet rs=ste.executeQuery("select * from commande order by Date_Commande");
+    ResultSet rs=ste.executeQuery("select c.*,m.Nom_Membre,m.Prenom_Membre from commande c ,membre m where c.Id_Membre= m.Id_Membre order by c.Date_Commande;");
      while (rs.next()) {                
                int Id_Commande=rs.getInt("Id_Commande");
+               String Nom=rs.getString("Nom_Membre");
+               String Prenom=rs.getString("Prenom_Membre");
                Date Date_Commande=rs.getDate("Date_Commande");
                Double Prix_Total=rs.getDouble("Prix_Total");
                int Id_Membre=rs.getInt("Id_Membre");
 //               System.out.println("la Commande est "+Id_Commande+" est Date = "+Date_Commande+" Age = "+
 //                        res.getString("age"));
-               Commande c=new Commande(Id_Commande, Date_Commande, Prix_Total, Id_Membre);
+               Commande c=new Commande(Id_Commande,Nom,Prenom, Date_Commande, Prix_Total, Id_Membre);
                arr.add(c);
      }
     return arr;
@@ -131,12 +135,14 @@ public class CommandeService implements ICommandeService {
     ResultSet rs=ste.executeQuery("select * from commande where Id_Membre='"+id_Membre+"'");
      while (rs.next()) {                
                int Id_Commande=rs.getInt("Id_Commande");
+               String Nom=rs.getString("Nom_Membre");
+               String Prenom=rs.getString("Prenom_Membre");
                Date Date_Commande=rs.getDate("Date_Commande");
                Double Prix_Total=rs.getDouble("Prix_Total");
                int Id_Membre=rs.getInt("Id_Membre");
 //               System.out.println("la Commande est "+Id_Commande+" est Date = "+Date_Commande+" Age = "+
 //                        res.getString("age"));
-               Commande c=new Commande(Id_Commande, Date_Commande, Prix_Total, Id_Membre);
+               Commande c=new Commande(Id_Commande,Nom,Prenom, Date_Commande, Prix_Total, Id_Membre);
                arr.add(c);
      }
     return arr;
@@ -146,15 +152,17 @@ public class CommandeService implements ICommandeService {
     public List<Commande> RechercheCommandeParNomMembre(String Nom_Membre) throws SQLException {
     List<Commande> arr=new ArrayList<>();
     ste=con.createStatement();
-    ResultSet rs=ste.executeQuery("select c.* from commande c ,membre m where c.Id_Membre= m.Id_Membre and m.Nom_Membre LIKE '"+Nom_Membre+"%'");
+    ResultSet rs=ste.executeQuery("select c.*,m.Nom_Membre,m.Prenom_Membre from commande c ,membre m where c.Id_Membre= m.Id_Membre and m.Nom_Membre LIKE '"+Nom_Membre+"%'");
      while (rs.next()) {                
                int Id_Commande=rs.getInt("Id_Commande");
+               String Nom=rs.getString("Nom_Membre");
+               String Prenom=rs.getString("Prenom_Membre"); 
                Date Date_Commande=rs.getDate("Date_Commande");
                Double Prix_Total=rs.getDouble("Prix_Total");
                int Id_Membre=rs.getInt("Id_Membre");
 //               System.out.println("la Commande est "+Id_Commande+" est Date = "+Date_Commande+" Age = "+
 //                        res.getString("age"));
-               Commande c=new Commande(Id_Commande, Date_Commande, Prix_Total, Id_Membre);
+               Commande c=new Commande(Id_Commande,Nom,Prenom, Date_Commande, Prix_Total, Id_Membre);
                arr.add(c);
      }
     return arr;

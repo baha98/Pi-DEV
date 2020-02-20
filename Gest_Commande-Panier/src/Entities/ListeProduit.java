@@ -5,16 +5,70 @@
  */
 package Entities;
 
+import javafx.scene.control.Button;
+
 /**
  *
  * @author ASUS
  */
 public class ListeProduit {
    private int id_produit;
+   private String libelle;
    private double prix;
    private int quantite;
+   private Button supprimer;
+   private Button update;
+   
+   
 
     public ListeProduit() {
+    }
+
+    public void setSupprimer(Button supprimer) {
+        this.supprimer = supprimer;
+    }
+
+    public void setUpdate(Button update) {
+        this.update = update;
+    }
+
+    
+    
+    public Button getSupprimer() {
+        return supprimer;
+    }
+
+    public Button getUpdate() {
+        return update;
+    }
+
+    public ListeProduit(String libelle, double prix, int quantite, Button supprimer, Button update) {
+        this.libelle = libelle;
+        this.prix = prix;
+        this.quantite = quantite;
+        this.supprimer = supprimer;
+        this.update = update;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
+    public ListeProduit(String libelle, double prix, int quantite) {
+        this.libelle = libelle;
+        this.prix = prix;
+        this.quantite = quantite;
+    }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public ListeProduit(int id_produit, String libelle, double prix, int quantite) {
+        this.id_produit = id_produit;
+        this.libelle = libelle;
+        this.prix = prix;
+        this.quantite = quantite;
     }
 
     public ListeProduit(int id_produit, double prix, int quantite) {

@@ -29,6 +29,7 @@ import java.util.List;
 public class PaiementService implements IPaiementService{
     private Connection con;
     private Statement ste;
+    
     public PaiementService() {
         con = DataBase.getInstance().getConnection();
     }
@@ -83,11 +84,11 @@ String req = "update Paiement set Type_Paiement=?,Num_Carte=?,Date_Expiration=?,
     public List<Paiement> AfficherPaiement() throws SQLException {
     List<Paiement> arr = new ArrayList<>();
     ste=con.createStatement();
-    ResultSet rs=ste.executeQuery("SELECT p.* , m.Nom_Membre,m.Prenom_Membre,m.Email_Membre"
+    ResultSet rs=ste.executeQuery("SELECT m.Nom_Membre,m.Prenom_Membre,p.Num_Carte,p.Date_Expiration,p.Code_Sec,p.Type_Paiement,p.Pays,m.Email_Membre"
             + " from paiement p , membre m where m.Id_Membre = p.Id_Membre");
      while (rs.next()) {   
-        int Id_Paiement = rs.getInt("Id_Paiement");
-        int Id_Membre =rs.getInt("Id_Membre");
+        //int Id_Paiement = rs.getInt("Id_Paiement");
+        //int Id_Membre =rs.getInt("Id_Membre");
         String Nom=rs.getString("Nom_Membre");
         String Prenom=rs.getString("Prenom_Membre"); 
         String Type_Paiement = rs.getString("Type_Paiement");
@@ -96,11 +97,35 @@ String req = "update Paiement set Type_Paiement=?,Num_Carte=?,Date_Expiration=?,
         Date Date_Expiration = rs.getDate("Date_Expiration");
         int Code_Sec = rs.getInt("Code_Sec");
         String Pays = rs.getString("Pays");
-        Paiement p=new Paiement(Id_Paiement,Id_Membre,Nom,Prenom,Type_Paiement,Email,Num_Carte,Date_Expiration,Code_Sec,Pays);
+        Paiement p=new Paiement(Nom,Prenom,Type_Paiement,Email,Num_Carte,Date_Expiration,Code_Sec,Pays);
                arr.add(p);
      }
     return arr;
     } 
+    
+    
+    @Override
+    public List<Paiement> AfficherPaiement1() throws SQLException{
+        List<Paiement> arr = new ArrayList<>();
+    ste=con.createStatement();
+    ResultSet rs=ste.executeQuery("SELECT p.*,m.Nom_Membre,m.Prenom_Membre,m.Email_Membre"
+            + " from paiement p , membre m where m.Id_Membre = p.Id_Membre");
+     while (rs.next()) {   
+        int Id_Paiement = rs.getInt("Id_Paiement");
+        int Id_Membre =rs.getInt("Id_Membre");
+        String Nom=rs.getString("m.Nom_Membre");
+        String Prenom=rs.getString("m.Prenom_Membre"); 
+        String Type_Paiement = rs.getString("p.Type_Paiement");
+        String Email=rs.getString("m.Email_Membre"); 
+        int Num_Carte = rs.getInt("p.Num_Carte");
+        Date Date_Expiration = rs.getDate("p.Date_Expiration");
+        int Code_Sec = rs.getInt("p.Code_Sec");
+        String Pays = rs.getString("p.Pays");
+        Paiement p=new Paiement(Id_Paiement,Id_Membre,Nom,Prenom,Type_Paiement,Email,Num_Carte,Date_Expiration,Code_Sec,Pays);
+               arr.add(p);
+     }
+    return arr;
+    }
     
     @Override
     public List<Paiement> RecherchePaiementParNomMembre(String Nom_Membre) throws SQLException {
@@ -132,7 +157,7 @@ String req = "update Paiement set Type_Paiement=?,Num_Carte=?,Date_Expiration=?,
     List<Paiement> arr=new ArrayList<>();
     ste=con.createStatement();
     ResultSet rs=ste.executeQuery("SELECT p.* , m.Nom_Membre,m.Prenom_Membre,m.Email_Membre"
-            + " from paiement p , membre m where m.Id_Membre = p.Id_Membre order by p.Id_Paiement");
+            + " from paiement p , membre m where m.Id_Membre = p.Id_Membre order by m.Prenom_Membre");
      while (rs.next()) {                
         int Id_Paiement = rs.getInt("Id_Paiement");
         int Id_Membre =rs.getInt("Id_Membre");

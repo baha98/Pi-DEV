@@ -132,7 +132,7 @@ public class VeloTn  {
            c.FacturePdf(3);
            
            
-           List<Paiement> L1= p.AfficherPaiement();
+           List<Paiement> L1= p.AfficherPaiement1();
            System.out.println("****** Les PAIEMENTS ******");
            for(Paiement pp: L1)
             {System.out.println(pp);}

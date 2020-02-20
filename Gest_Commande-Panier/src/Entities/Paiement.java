@@ -65,6 +65,17 @@ public class Paiement {
         this.Pays = Pays;
     }
 
+    public Paiement(String Nom, String prenom, String Type_Paiement, String Email, int Num_Carte, Date Date_Expiration, int Code_Sec, String Pays) {
+        this.Nom = Nom;
+        this.prenom = prenom;
+        this.Type_Paiement = Type_Paiement;
+        this.Email = Email;
+        this.Num_Carte = Num_Carte;
+        this.Date_Expiration = Date_Expiration;
+        this.Code_Sec = Code_Sec;
+        this.Pays = Pays;
+    }
+
     public int getId_Paiement() {
         return Id_Paiement;
     }
@@ -119,6 +130,30 @@ public class Paiement {
 
     public void setPays(String Pays) {
         this.Pays = Pays;
+    }
+
+    public String getNom() {
+        return Nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setNom(String Nom) {
+        this.Nom = Nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
     @Override

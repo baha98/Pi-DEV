@@ -7,6 +7,7 @@ package Service;
 
 import Entities.Paiement;
 import java.awt.AWTException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public interface IPaiementService {
     public boolean SupprimerPaiement( Paiement p) throws SQLException;
     public boolean ModifierPaiement( Paiement p) throws SQLException;
     public List<Paiement> AfficherPaiement() throws SQLException;
+    public List<Paiement> AfficherPaiement1() throws SQLException;
     public List<Paiement> TrierPaiement() throws SQLException;
     public List<Paiement> RecherchePaiementParNomMembre(String Nom_Membre) throws SQLException;
     public void PaiementEffectue() throws AWTException;

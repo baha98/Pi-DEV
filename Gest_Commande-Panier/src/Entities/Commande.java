@@ -14,6 +14,8 @@ import java.sql.*;
  */
 public class Commande {
     private int Id_Commande;
+    private String Nom;
+    private String Prenom;
     private Date Date_Commande;
     private Double Prix_Total;
     private int Id_Membre;
@@ -47,6 +49,31 @@ public class Commande {
         this.Date_Commande = Date_Commande;
         this.Prix_Total = Prix_Total;
         this.Id_Membre = Id_Membre;
+    }
+
+    public Commande(int Id_Commande, String Nom, String Prenom, Date Date_Commande, Double Prix_Total, int Id_Membre) {
+        this.Id_Commande = Id_Commande;
+        this.Nom = Nom;
+        this.Prenom = Prenom;
+        this.Date_Commande = Date_Commande;
+        this.Prix_Total = Prix_Total;
+        this.Id_Membre = Id_Membre;
+    }
+
+    public void setNom(String Nom) {
+        this.Nom = Nom;
+    }
+
+    public void setPrenom(String Prenom) {
+        this.Prenom = Prenom;
+    }
+
+    public String getNom() {
+        return Nom;
+    }
+
+    public String getPrenom() {
+        return Prenom;
     }
 
     public int getId_Commande() {
