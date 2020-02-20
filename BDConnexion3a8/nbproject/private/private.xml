@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/gui/AfficherVenteFXMLController.java</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/Main.java</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/gui/AfficherVenteFXML.fxml</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/service/AccessoireService.java</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/gui/ModifierStockFXML.fxml</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/service/VeloService.java</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/service/iAccessoireService.java</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/gui/ModifierStockFXMLController.java</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/entites/Accessoire.java</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/gui/AcceuilFXMLController.java</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/entites/Velo.java</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/gui/AcceuilFXML.fxml</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/gui/AfficheStockFXMLController.java</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/gui/AjouterVeloAccess.fxml</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/gui/AjouterVeloAccessController.java</file>
+            <file>file:/C:/Users/zoula/Desktop/BDConnexion3a8/src/service/iVeloService.java</file>
+        </group>
+    </open-files>
+</project-private>
