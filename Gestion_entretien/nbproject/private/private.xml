@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/controllers/DashboardFXMLController.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/Service/EntretienService.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/Entite/Location.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/controllers/LocationInsertFXMLController.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/gui/InscriptionFXML.fxml</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/Test/main.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/Test/MyPreloader.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/gui/LoginFXML.fxml</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/Service/VeloService.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/controllers/StartFXMLController.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/gui/StartFXML.fxml</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/controllers/InscriptionFXMLController.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/Entite/Velo.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/gui/DashboardFXML.fxml</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/controllers/EntretienFXMLController.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/Service/LocationsService.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/controllers/LoginFXMLController.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/controllers/LocationFXMLController.java</file>
+            <file>file:/C:/Users/itsme/Documents/NetBeansProjects/Gestion_entretien/src/gui/dashboardfxml.css</file>
+        </group>
+    </open-files>
+</project-private>

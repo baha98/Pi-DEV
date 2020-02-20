@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LocationInsertFXMLController">
+   <children>
+      <Label layoutX="72.0" layoutY="120.0" text="Date de debut" />
+      <Label layoutX="72.0" layoutY="214.0" text="Date de fin" />
+      <JFXDatePicker fx:id="Date_debut" layoutX="201.0" layoutY="116.0" />
+      <JFXDatePicker fx:id="Date_fin" layoutX="201.0" layoutY="210.0" />
+      <ChoiceBox fx:id="veloChoice" layoutX="201.0" layoutY="302.0" prefWidth="150.0" />
+      <Label layoutX="72.0" layoutY="306.0" text="Velo" />
+      <Button fx:id="InsertButton" layoutX="388.0" layoutY="507.0" mnemonicParsing="false" onAction="#insertLocation" prefHeight="66.0" prefWidth="136.0" text="Insert" />
+      <Label layoutX="72.0" layoutY="390.0" text="Prix" />
+      <JFXTextField fx:id="Prix_Field" layoutX="201.0" layoutY="378.0" />
+      <Button fx:id="Retour_Button" layoutX="63.0" layoutY="507.0" mnemonicParsing="false" onAction="#retour" prefHeight="66.0" prefWidth="136.0" text="Retour" />
+   </children>
+</AnchorPane>

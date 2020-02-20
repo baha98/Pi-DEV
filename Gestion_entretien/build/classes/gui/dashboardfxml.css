@@ -1,0 +1,28 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.Leftmenu {
+    -fx-background-color : #000;
+    -fx-color: #ffd933;
+}
+.hover_border:hover{
+    -fx-border-color:#ffd933;
+    -fx-border-width : 0px 0px 0px 2px;
+    -fx-background-color:#fff50f;
+    -fx-text-fill:#203541;
+}
+.top_left{
+    -fx-background-color: #fff;
+}
+.text_field{
+    -fx-background-color: #CACACA;
+    -fx-border-radius: 5px;
+    -fx-border-color:#FACE4C;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+}
