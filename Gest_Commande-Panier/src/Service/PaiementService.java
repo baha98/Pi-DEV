@@ -63,16 +63,12 @@ PreparedStatement pre=con.prepareStatement("INSERT INTO Paiement "
 
     @Override
     public boolean ModifierPaiement(Paiement p) throws SQLException {
-String req = "update Paiement set Type_Paiement=?,Num_Carte=?,Date_Expiration=?,Code_sec=?,Pays=?"
+String req = "update Paiement set Pays=?"
         + " where Id_Paiement =?";
             PreparedStatement ps = con.prepareStatement(req);
-        
-        ps.setString(1, p.getType_Paiement());
-        ps.setInt(2, p.getNum_Carte());
-        ps.setDate(3, p.getDate_Expiration());
-        ps.setInt(4, p.getCode_Sec());
-        ps.setString(5, p.getPays());
-        ps.setInt(6, p.getId_Paiement());
+       
+        ps.setString(1, p.getPays());
+        ps.setInt(2, p.getId_Paiement());
             if (ps.executeUpdate()==1)
             {
                 return true;
@@ -192,7 +188,7 @@ String req = "update Paiement set Type_Paiement=?,Num_Carte=?,Date_Expiration=?,
         trayIcon.setToolTip("Notification");
         tray.add(trayIcon);
 
-        trayIcon.displayMessage("Paiement Effectué", "notification demo", TrayIcon.MessageType.INFO); 
+        trayIcon.displayMessage("Paiement Effectué", "Paiement", TrayIcon.MessageType.INFO); 
         
         
         }

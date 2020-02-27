@@ -71,11 +71,11 @@ public class AccessoireService implements iAccessoireService{
             PreparedStatement ps = myConnex.prepareStatement(req);
             ps.setString(1, A.getLibelle());
             ps.setDouble(2, A.getPrix());
-             ps.setInt(3, A.getQte());
+            ps.setInt(3, A.getQte());
             ps.setString(4, A.getCouleur());
-             ps.setString(5, A.getMarque());
-             ps.setString(6, A.getDescription());
-             ps.setString(7, A.getImage());
+            ps.setString(5, A.getMarque());
+            ps.setString(6, A.getDescription());
+            ps.setString(7, A.getImage());
             ps.setInt(8, A.getId_Accessoire());
             ps.executeUpdate();
             return true;
@@ -183,6 +183,20 @@ public class AccessoireService implements iAccessoireService{
            return list;
     }
       
+    
+    
+    public boolean UpdateStock(int id,int quantite) throws SQLException
+    {   
+        String req = "update Accessoire set Qte=Qte-'"+quantite+"' where Id_Accessoire ='"+id+"'";
+        if(ste.executeUpdate(req)==1)
+        {
+     return true;
+        }
+        else {
+            return false;
+        }
     }
+    
+}
     
 

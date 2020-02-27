@@ -50,7 +50,7 @@ public class HomeController implements Initializable {
 
     @FXML
     private void User(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/AfficheStockFXML.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/AfficheStockUser.fxml"));
             Parent root;
             root = loader.load();
             Scene scene = new Scene(root);

@@ -7,6 +7,7 @@ package velo.tn;
 import Entities.Commande;
 import Entities.ListeProduit;
 import Entities.Paiement;
+import Service.AccessoireService;
 import java.sql.*;
 import Service.CommandeService;
 import Service.PaiementService;
@@ -33,13 +34,15 @@ public class VeloTn  {
      */
     
     
-    public static void main(String[] args) throws ParseException, FileNotFoundException, DocumentException, IOException, AWTException {
+    public static void main(String[] args) throws ParseException, FileNotFoundException, DocumentException, IOException, AWTException, SQLException {
        DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
        java.sql.Date Date = new java.sql.Date(df.parse("02-04-2015").getTime());
        java.sql.Date Date1 = new java.sql.Date(df.parse("10-02-2020").getTime());
        
        CommandeService c = new CommandeService();
        PaiementService p = new PaiementService();
+       AccessoireService ac = new AccessoireService();
+       ac.UpdateStock(13, 3);
        
        
        

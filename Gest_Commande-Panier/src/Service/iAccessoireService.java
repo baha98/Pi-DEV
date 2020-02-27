@@ -6,6 +6,7 @@
 package Service;
 
 import Entities.Accessoire;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -19,5 +20,6 @@ public interface iAccessoireService {
     public  List<Accessoire> afficherAccessoire();
     public  List<Accessoire> triParPrix();
     public  List<Accessoire> rechercheParMarque(String marque);
+    public boolean UpdateStock(int id,int quantite) throws SQLException;;
     
 }

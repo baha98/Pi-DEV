@@ -180,6 +180,20 @@ public class VeloService implements iVeloService{
           
            return list;
     }
+     
+     
+      @Override
+     public boolean UpdateStock(int id,int quantite) throws SQLException
+    {   
+        String req = "update Velo set Qte=Qte-'"+quantite+"' where Id_Velo ='"+id+"'";
+        if(ste.executeUpdate(req)==1)
+        {
+     return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
     
 

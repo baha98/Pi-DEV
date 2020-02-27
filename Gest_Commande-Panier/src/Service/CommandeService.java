@@ -176,7 +176,7 @@ public class CommandeService implements ICommandeService {
         
        
         ste=con.createStatement();
-        ResultSet rs=ste.executeQuery("select c.Id_Commande,m.Nom_Membre,m.Prenom_Membre,c.Prix_Total,c.Date_Commande from commande c , membre m where c.Id_Membre= m.Id_Membre and m.Id_Membre='"+id_membre+"'");
+        ResultSet rs=ste.executeQuery("select c.Id_Commande,m.Nom_Membre,m.Prenom_Membre,c.Prix_Total,c.Date_Commande from commande c , membre m where c.Etat_Commande IS NULL and c.Id_Membre= m.Id_Membre and m.Id_Membre='"+id_membre+"'");
         PdfWriter.getInstance(doc, new FileOutputStream("G:\\Project\\Velo.tn\\Facture.pdf"));
         
         doc.open();
@@ -288,8 +288,27 @@ public class CommandeService implements ICommandeService {
                     
                     return total;
                 }
-        
+         
+         
+         
+    @Override
+         public boolean PayerCommande(int id_membre) throws SQLException
+         {
+             String req = "update Commande set Etat_Commande=? where Etat_Commande IS NULL and Id_Membre =?";
+            PreparedStatement ps = con.prepareStatement(req);
+            ps.setInt(1, 1);
+            
+            ps.setInt(2,id_membre);
+            if (ps.executeUpdate()==1)
+            {
+                return true;
+            }
+            else 
+                return false;
     }
+         }
+        
+    
     
     
     

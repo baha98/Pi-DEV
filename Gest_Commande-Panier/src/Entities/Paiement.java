@@ -26,6 +26,13 @@ public class Paiement {
     public Paiement() {
     }
 
+    public Paiement(int Id_Paiement, String Pays) {
+        this.Id_Paiement = Id_Paiement;
+        this.Pays = Pays;
+    }
+
+    
+    
     public Paiement(int Id_Paiement, int Id_Membre, String Nom, String prenom, String Type_Paiement, String Email, int Num_Carte, Date Date_Expiration, int Code_Sec, String Pays) {
         this.Id_Paiement = Id_Paiement;
         this.Id_Membre = Id_Membre;

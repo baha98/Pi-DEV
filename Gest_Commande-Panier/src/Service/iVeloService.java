@@ -6,6 +6,7 @@
 package Service;
 
 import Entities.Velo;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -19,4 +20,5 @@ public interface iVeloService {
     public List<Velo> afficherVelo();
     public  List<Velo> triParPrix();
     public  List<Velo> rechercheParMarque(String marque);
+    public boolean UpdateStock(int id,int quantite) throws SQLException;;
 }

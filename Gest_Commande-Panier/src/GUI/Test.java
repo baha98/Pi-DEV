@@ -26,7 +26,7 @@ public class Test extends Application  {
             
             Scene scene = new Scene(root);
             
-            primaryStage.setTitle("Paiement");
+            primaryStage.setTitle("Home");
             primaryStage.setScene(scene);
             primaryStage.show();
             

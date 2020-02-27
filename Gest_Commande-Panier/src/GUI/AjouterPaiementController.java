@@ -12,6 +12,7 @@ import com.itextpdf.text.DocumentException;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -23,6 +24,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -77,36 +79,74 @@ public class AjouterPaiementController implements Initializable {
         Pays.setItems(ListPays);
     }    
     
+    
+    public boolean estUnEntier(String chaine) {
+		try {
+			Integer.parseInt(chaine);
+		} catch (NumberFormatException e){
+			return false;
+		}
+ 
+		return true;
+	}
+    
     @FXML
     private void AjouterPaiement(ActionEvent event) throws AWTException {
         
        
         try {
         
-        int idM = Integer.parseInt(IdMembre.getText());
-   
-        RadioButton selectedRadioButton = (RadioButton) TypePaiement.getSelectedToggle();
-        String TypeP = selectedRadioButton.getText();
-        
-        
-        int NumC = Integer.parseInt(NumCarte.getText());
         
         
         java.sql.Date DateE = java.sql.Date.valueOf(DateExpiration.getValue());
+        Date DateS = new Date(System.currentTimeMillis());
         
         
-        int CodeS = Integer.parseInt(CodeSec.getText());
         
-        
+       
+             if(DateE.before(DateS))
+        {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setContentText("Carte Expiré");
+                    a.show(); 
+        }
+             
+        else if(TypePaiement.getToggles().isEmpty())
+                     {
+                          Alert a = new Alert(Alert.AlertType.ERROR);
+                                a.setContentText("Num Carte doit être des chiffres seuelement");
+                                a.show(); 
+                     }
+        else if((!estUnEntier(NumCarte.getText()))&&(NumCarte.getText().isEmpty()))
+        {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setContentText("Num Carte doit être des chiffres seuelement");
+                    a.show(); 
+        }
+        else if((!estUnEntier(CodeSec.getText()))&&(CodeSec.getText().length()!=4 ))
+        {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setContentText("Code Sécurité doit être 4 chiffres seuelement");
+                    a.show(); 
+        }
+   
+        else 
+        {
+        int idM = Integer.parseInt(IdMembre.getText());
+        RadioButton selectedRadioButton = (RadioButton) TypePaiement.getSelectedToggle();
+        String TypeP = selectedRadioButton.getText();
+        int NumC = Integer.parseInt(NumCarte.getText());
+        int CodeS = Integer.parseInt(CodeSec.getText());  
         String PaysSel = (String) Pays.getSelectionModel().getSelectedItem();
-        
-        
+
         
         PaiementService p = new PaiementService();
+        CommandeService c= new CommandeService();
         Paiement p1 = new Paiement(0,idM,TypeP,NumC,DateE,CodeS,PaysSel);
-        
             p.ajouterPaiement(p1);
+            c.PayerCommande(3);
             p.PaiementEffectue();
+        }
             
             
 //            FXMLLoader loader = new FXMLLoader
@@ -132,6 +172,7 @@ public class AjouterPaiementController implements Initializable {
          //int idM = Integer.parseInt(IdMembre.getText());
          CommandeService c= new CommandeService();
          c.FacturePdf(3);
+         
     }
     
 }

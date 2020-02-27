@@ -27,6 +27,8 @@ public interface ICommandeService {
     public List<Commande> RechercheCommandeParNomMembre(String Nom_Membre) throws SQLException;
     public double CalculerTotalCommande(List<ListeProduit> L);
     public void FacturePdf(int id_membre) throws SQLException,FileNotFoundException,DocumentException,IOException;
+    public boolean PayerCommande(int id_membre) throws SQLException;
+    
     
     
     

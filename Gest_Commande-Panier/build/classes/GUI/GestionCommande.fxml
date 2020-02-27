@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="467.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GestionCommandeController">
@@ -24,8 +25,8 @@
       <DatePicker fx:id="dateCommande" layoutX="117.0" layoutY="285.0" />
       <TextField fx:id="idCommande" layoutX="119.0" layoutY="76.0" />
       <TextField fx:id="prixTotal" layoutX="81.0" layoutY="233.0" />
-      <Button fx:id="suppC" layoutX="81.0" layoutY="343.0" mnemonicParsing="false" onAction="#SupprimerCommande" text="Supprimer" />
-      <Button fx:id="modifiierC" layoutX="178.0" layoutY="343.0" mnemonicParsing="false" onAction="#ModifierCommande" text="Modifier" />
+      <Button fx:id="suppC" layoutX="108.0" layoutY="388.0" mnemonicParsing="false" onAction="#SupprimerCommande" prefHeight="39.0" prefWidth="149.0" text="Supprimer" />
+      <Button fx:id="modifiierC" layoutX="106.0" layoutY="329.0" mnemonicParsing="false" onAction="#ModifierCommande" prefHeight="39.0" prefWidth="149.0" text="Modifier" />
       <Button fx:id="TriC" layoutX="477.0" layoutY="356.0" mnemonicParsing="false" onAction="#TrierParDate" text="Trier Par Date" />
       <Label layoutX="15.0" layoutY="80.0" text="Id_Commande" />
       <Label layoutX="26.0" layoutY="123.0" text="Nom" />
@@ -33,5 +34,7 @@
       <Label layoutX="25.0" layoutY="237.0" text="Prix Total" />
       <Label layoutX="25.0" layoutY="289.0" text="Date Commande " />
       <Label layoutX="385.0" layoutY="37.0" text="Search" />
+      <ImageView fx:id="UpdateImage" fitHeight="25.0" fitWidth="42.0" layoutX="112.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="DeleteImage" fitHeight="25.0" fitWidth="36.0" layoutX="115.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

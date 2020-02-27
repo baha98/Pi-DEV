@@ -21,12 +21,15 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
@@ -66,6 +69,10 @@ public class GestionCommandeController implements Initializable {
     private Button modifiierC;
     @FXML
     private Button TriC;
+    @FXML
+    private ImageView UpdateImage;
+    @FXML
+    private ImageView DeleteImage;
 
     /**
      * Initializes the controller class.
@@ -75,6 +82,11 @@ public class GestionCommandeController implements Initializable {
         try {
             // TODO
             Actualiser();
+            Image imgUpdate = new Image("/Icons/update-png-3.png");
+            UpdateImage.setImage(imgUpdate);
+            Image imgDelete = new Image("/Icons/supp2.png");
+            DeleteImage.setImage(imgDelete);
+            
         } catch (SQLException ex) {
             Logger.getLogger(GestionCommandeController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -138,7 +150,18 @@ public class GestionCommandeController implements Initializable {
     private void SupprimerCommande(ActionEvent event) throws SQLException {
        CommandeService c= new CommandeService();
         co = TableCommande.getSelectionModel().getSelectedItem();
-        c.SupprimerCommande(new Commande(co.getId_Commande()));
+        
+        if(c.SupprimerCommande(new Commande(co.getId_Commande())))
+            {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+                                a.setContentText("Commande Supprimé");
+                                a.show(); 
+        }
+        else {
+             Alert a = new Alert(Alert.AlertType.ERROR);
+                                 a.setContentText("Echec de Supression");
+                                a.show(); 
+        }
         Actualiser();
     }
 
@@ -154,7 +177,17 @@ public class GestionCommandeController implements Initializable {
         java.sql.Date DateE = java.sql.Date.valueOf(dateCommande.getValue());
 
          
-        c.ModifierCommande(new Commande(co.getId_Commande(),DateE,prixT));
+        if(c.ModifierCommande(new Commande(co.getId_Commande(),DateE,prixT)))
+        {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+                                a.setContentText("Commande Modifié");
+                                a.show(); 
+        }
+        else {
+             Alert a = new Alert(Alert.AlertType.ERROR);
+                                a.setContentText("Echec de modification");
+                                a.show(); 
+        }
         
         Actualiser();
         

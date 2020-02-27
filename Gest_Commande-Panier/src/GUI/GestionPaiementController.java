@@ -20,6 +20,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -27,6 +28,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
@@ -90,6 +93,10 @@ public class GestionPaiementController implements Initializable {
     private TextField search;
     @FXML
     private Button trier;
+    @FXML
+    private ImageView imgUpdate;
+    @FXML
+    private ImageView imgDelete;
             
     
     
@@ -98,7 +105,15 @@ public class GestionPaiementController implements Initializable {
         // TODO
        
         try {
-             PaiementService p= new PaiementService();
+            
+            
+            Image imgUpdatee = new Image("/Icons/update-png-3.png");
+            imgUpdate.setImage(imgUpdatee);
+            Image imgDeletee = new Image("/Icons/supp2.png");
+            imgDelete.setImage(imgDeletee);
+            PaiementService p= new PaiementService();
+             
+             
                 ArrayList<Paiement> l;
             l = (ArrayList<Paiement>) p.AfficherPaiement1();
             ObservableList<Paiement> ListPaiement = FXCollections.observableArrayList(l);
@@ -176,12 +191,18 @@ public class GestionPaiementController implements Initializable {
             emailMembre.setDisable(true);
             
             numCarte.setText(String.valueOf(pa.getNum_Carte()));
+            numCarte.setDisable(true);
+            
+            
             
             typePaiement.setText(pa.getType_Paiement());
+            typePaiement.setDisable(true);
             
             dateExpiration.setValue(pa.getDate_Expiration().toLocalDate());
+            dateExpiration.setDisable(true);
             
             codeSec.setText(String.valueOf(pa.getCode_Sec()));
+            codeSec.setDisable(true);
             
             pays.setValue(pa.getPays());
             
@@ -200,7 +221,18 @@ public class GestionPaiementController implements Initializable {
     private void SupprimerPaiement(ActionEvent event) throws SQLException {
         PaiementService p= new PaiementService();
         pa = TablePaiement.getSelectionModel().getSelectedItem();
-        p.SupprimerPaiement(new Paiement(pa.getId_Paiement()));
+        
+        if(p.SupprimerPaiement(new Paiement(pa.getId_Paiement())))
+            {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+                                a.setContentText("Paiement Supprimé");
+                                a.show(); 
+        }
+        else {
+             Alert a = new Alert(Alert.AlertType.ERROR);
+                                a.setContentText("Echec de Supression");
+                                a.show(); 
+        }
         Actualiser();
     }
 
@@ -221,7 +253,18 @@ public class GestionPaiementController implements Initializable {
         
         String PaysSel = (String) pays.getSelectionModel().getSelectedItem();
          
-        p.ModifierPaiement(new Paiement(pa.getId_Paiement(),typeP,NumC,DateE,CodeS,PaysSel));
+        if(p.ModifierPaiement(new Paiement(pa.getId_Paiement(),PaysSel)))
+        {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+                                a.setContentText("Paiement Modifié");
+                                a.show(); 
+        }
+        else {
+             Alert a = new Alert(Alert.AlertType.ERROR);
+                                 a.setContentText("Echec de modification");
+                                a.show(); 
+        }
+        
         
         Actualiser();
         

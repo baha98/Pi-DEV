@@ -16,6 +16,7 @@ public class ListeProduit {
    private String libelle;
    private double prix;
    private int quantite;
+   private String Type;
    private Button supprimer;
    private Button update;
    
@@ -24,10 +25,27 @@ public class ListeProduit {
     public ListeProduit() {
     }
 
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String Type) {
+        this.Type = Type;
+    }
+    
+
+    public ListeProduit(int id_produit, String libelle, double prix, int quantite, String Type) {
+        this.id_produit = id_produit;
+        this.libelle = libelle;
+        this.prix = prix;
+        this.quantite = quantite;
+        this.Type = Type;
+    }
+
     public void setSupprimer(Button supprimer) {
         this.supprimer = supprimer;
     }
-
+     
     public void setUpdate(Button update) {
         this.update = update;
     }
