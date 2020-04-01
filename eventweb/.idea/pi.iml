@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Projet/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Projet/tests" isTestSource="true" packagePrefix="Tests\" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/doctrine/collections" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/doctrine/common" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/doctrine/doctrine-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/doctrine/doctrine-cache-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/doctrine/orm" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/fig/link-util" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/friendsofsymfony/user-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/incenteev/composer-parameter-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/jdorn/sql-formatter" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/lcobucci/jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/nexmo/client" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/nexmo/client-core" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/php-http/guzzle6-adapter" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/php-http/httplug" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/php-http/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/psr/link" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/sensio/distribution-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/sensio/framework-extra-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/sensio/generator-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/sensiolabs/security-checker" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/swiftmailer/swiftmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/symfony/monolog-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/symfony/phpunit-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/symfony/polyfill-apcu" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/symfony/polyfill-intl-icu" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/symfony/polyfill-php56" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/symfony/polyfill-php70" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/symfony/polyfill-util" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/symfony/swiftmailer-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/symfony/symfony" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/Projet/vendor/zendframework/zend-diactoros" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

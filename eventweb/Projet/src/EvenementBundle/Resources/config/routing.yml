@@ -1,0 +1,37 @@
+evenement_homepage:
+    path:     /
+    defaults: { _controller: EvenementBundle:Default:index }
+Ajoutevenement:
+    path:     /responsable/Ajoutevenement
+    defaults: { _controller: EvenementBundle:evenement:Addevenement }
+
+evenement_Affiche:
+    path:     /responsable/Afficheevenement
+    defaults: { _controller: EvenementBundle:evenement:Listevenement }
+
+evenement_Supprime:
+    path:     /responsable/Supprime/{id}
+    defaults: { _controller: EvenementBundle:evenement:Supprime }
+
+evenement_Modifier:
+    path:     /responsable/Afficheevenement/{id}
+    defaults: { _controller: EvenementBundle:evenement:editevenement }
+evenement_Front_Affiche:
+  path:     /front/Afficheevenement
+  defaults: { _controller: EvenementBundle:evenement:ListeventFront }
+
+participation_Affiche:
+    path:     /responsable/Afficheparticipation
+    defaults: { _controller: EvenementBundle:participation:Listparticipation }
+
+participation_Supprime:
+    path:     /responsable/Supprimeparticipation/{id}
+    defaults: { _controller: EvenementBundle:participation:Supprimeparticipation }
+
+participation_Modifier:
+    path:     /responsable/Afficheparticipation/{id}
+    defaults: { _controller: EvenementBundle:participation:editparticipation }
+
+participation_Ajout:
+  path:     /responsable/Ajouterparticipation/{id}
+  defaults: { _controller: EvenementBundle:participation:Addparticipation }
