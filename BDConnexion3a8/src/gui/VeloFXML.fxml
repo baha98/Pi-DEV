@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.VeloFXMLController">
+   <children>
+      <Label layoutX="120.0" layoutY="48.0" text="nom" />
+      <Text layoutX="139.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="age" />
+      <TextField fx:id="txtfnom" layoutX="265.0" layoutY="32.0" />
+      <TextField fx:id="txtage" layoutX="265.0" layoutY="77.0" />
+      <Button fx:id="btnajout" layoutX="292.0" layoutY="139.0" mnemonicParsing="false" onAction="#ajout" text="ajouter" />
+      <TableView layoutX="111.0" layoutY="180.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

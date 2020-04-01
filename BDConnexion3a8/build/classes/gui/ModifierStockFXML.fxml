@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.ModifierStockFXMLController">
+  <children>
+    <Label layoutX="205.0" layoutY="22.0" prefHeight="21.0" prefWidth="190.0" text="Ajouter Velo et Accessoire" />
+    <ComboBox fx:id="cmbAccVelo" editable="true" layoutX="218.0" layoutY="59.0" onAction="#hide" onInputMethodTextChanged="#hide" prefWidth="150.0" promptText="---" visibleRowCount="2" />
+    <Pane layoutX="19.0" layoutY="97.0" prefHeight="281.0" prefWidth="562.0">
+      <children>
+        <Label layoutX="15.0" layoutY="64.0" text="Libelle" />
+        <Label layoutX="24.0" layoutY="113.0" text="Prix" />
+        <Label layoutX="7.0" layoutY="179.0" text="Quantité" />
+        <Label layoutX="215.0" layoutY="38.0" text="Couleur" />
+        <Label layoutX="215.0" layoutY="113.0" text="Marque" />
+        <Label fx:id="lblEtat" layoutX="228.0" layoutY="179.0" text="Etat" />
+        <Label layoutX="381.0" layoutY="38.0" text="Image" />
+        <Label layoutX="381.0" layoutY="75.0" text="Description" />
+        <TextField fx:id="txtfLib" layoutX="77.0" layoutY="54.0" prefHeight="31.0" prefWidth="107.0" />
+        <TextField fx:id="txtfPrix" layoutX="77.0" layoutY="108.0" prefHeight="31.0" prefWidth="107.0" />
+        <TextField fx:id="txtfQte" layoutX="77.0" layoutY="174.0" prefHeight="31.0" prefWidth="107.0" />
+        <TextField fx:id="txtfCoul" layoutX="277.0" layoutY="33.0" prefHeight="31.0" prefWidth="89.0" />
+        <TextField fx:id="txtfMarque" layoutX="277.0" layoutY="108.0" prefHeight="31.0" prefWidth="89.0" />
+        <TextArea fx:id="txtDescr" layoutX="381.0" layoutY="108.0" prefHeight="102.0" prefWidth="171.0" />
+        <ComboBox fx:id="cmbEtat" editable="true" layoutX="277.0" layoutY="174.0" prefHeight="31.0" prefWidth="89.0" />
+        <Button fx:id="btnFile" layoutX="443.0" layoutY="33.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="89.0" text="Ajouter Image" />
+        <Button fx:id="btnModif" layoutX="131.0" layoutY="232.0" mnemonicParsing="false" onAction="#modifier" prefWidth="98.0" text="Modifier" />
+        <Button layoutX="310.0" layoutY="233.0" mnemonicParsing="false" prefWidth="98.0" text="Annuler" />
+        <TextField fx:id="txtfID" layoutX="78.0" layoutY="1.0" prefWidth="107.0" />
+        <Label id="txtfID" layoutX="23.0" layoutY="4.0" text="ID" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

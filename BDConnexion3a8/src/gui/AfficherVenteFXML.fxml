@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.AfficherVenteFXMLController">
+  <children>
+    <Label fx:id="lblLibelle" layoutX="65.0" layoutY="298.0" prefHeight="27.0" prefWidth="122.0" text="" />
+    <ImageView fx:id="imgProduit" fitHeight="154.5" fitWidth="206.0" layoutX="27.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
+    <Label fx:id="lblMarque" layoutX="308.0" layoutY="46.0" prefWidth="149.0" text="Label" />
+    <Label fx:id="lblPrix" layoutX="308.0" layoutY="123.0" prefWidth="149.0" text="Label" />
+    <Label fx:id="lblCouleur" layoutX="308.0" layoutY="200.0" prefWidth="149.0" text="Label" />
+    <Button fx:id="btnPanier" layoutX="199.0" layoutY="339.0" mnemonicParsing="false" prefWidth="149.0" text="Ajouter au panier" />
+    <Button fx:id="btnLouer" layoutX="422.0" layoutY="340.0" mnemonicParsing="false" prefWidth="122.0" text="Louer" />
+  </children>
+</AnchorPane>
