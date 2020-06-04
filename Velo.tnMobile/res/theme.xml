@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource majorVersion="1" minorVersion="9" useXmlUI="false">
+    <image name="banner-1.jpg"  />
+    <image name="casquevelo.jpg"  />
+    <image name="payer.png"  />
+    <image name="preloader.gif"  />
+    <theme name="Theme">
+        <val key="@includeNativeBool" value="true" />
+    </theme>
+    <image name="wall.jpg"  />
+    <image name="webfrontlogo.png"  />
+</resource>
