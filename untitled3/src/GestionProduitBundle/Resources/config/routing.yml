@@ -1,0 +1,18 @@
+gestion_produit_homepage:
+    path:     /
+    defaults: { _controller: GestionProduitBundle:Default:index }
+
+show:
+    path:     /show
+    defaults: { _controller: GestionProduitBundle:Produit:show }
+gestvelo:
+    path:     /gestvelo
+    defaults: {_controller: GestionProduitBundle:Produit:gestvelo }
+
+affichemodif:
+    path:     /affichemodif/{id}
+    defaults: {_controller: GestionProduitBundle:Produit:affichemodif }
+
+deletevelo:
+    path: /deletevelo/{id}
+    defaults: { _controller: GestionProduitBundle:Produit:deletevelo }

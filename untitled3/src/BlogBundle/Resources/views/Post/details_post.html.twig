@@ -1,0 +1,54 @@
+
+{% extends 'base.html.twig' %}
+{% block content %}
+<section class="page-title-section overlay" data-background="{{ asset('images/backgrounds/page-title.jpg') }} ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb">
+                    <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="blog.html">Our Blog</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary nasted">Blog Details</li>
+                </ul>
+                <p class="text-lighten">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-sm bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <img src="{{ asset( 'image/'~Blog.getImage()) }}" alt="blog-thumb" class="img-fluid w-100">
+            </div>
+            <div class="col-12">
+                <ul class="list-inline">
+                    <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><span class="font-weight-bold mr-2">Post:</span>{{ Blog.getIdUser().getNommembre() }}</li>
+                    <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light">{{ Blog.dateActualite() |date("m/d/Y") }}</li>
+                    <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><i class="ti-book mr-2"></i>{{ Blog.getNbreVus() }}</li>
+                    {% if liked[0].likes == 0 %}
+                        <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><a class="text-light" href="{{ path('blog_aimer',{'id':Blog.getId()}) }}"><i class="ti-heart mr-2"></i>{{ Blog.getNbreJaime() }}</a></li>
+                    {% else %}
+                        <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><a class="text-light" href="{{ path('blog_pas_aimer',{'id':Blog.getId()}) }}"><i class="ti-heart-broken mr-2"></i>{{ Blog.getNbreJaime() }}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <!-- border -->
+            <div class="col-12 mt-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+            <!-- blog contect -->
+            <div class="col-12 mb-5">
+                <h2>{{ Blog.getTitre() }}</h2>
+                <p>{{ Blog.getDescription()}}</p>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                {% include '@FOSComment/Thread/async.html.twig' with {'id': Blog.getTitre() } %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

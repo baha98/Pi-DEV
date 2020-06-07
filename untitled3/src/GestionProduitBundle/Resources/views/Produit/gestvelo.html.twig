@@ -1,0 +1,68 @@
+{% extends 'base2.html.twig' %}
+{% block content %}
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="col-md-12">
+                <div class="content-panel">
+                    <h4><i class="fa fa-angle-right"></i>Velos</h4><hr><table class="table table-striped table-advance table-hover">
+
+
+                        <thead>
+                        <tr>
+                            <th>Libelle</th>
+                            <th>Image</th>
+                            <th>Catégorie</th>
+                            <th>Marque</th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                            <th>Couleur</th>
+                            <th>Description</th>
+                            <th>Etat</th>
+                            <th>Staff</th>
+                            <th>Modifier</th>
+                            <th>Supprimer</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for Velo in Velos %}
+                        <tr class="gradeX">
+                            <td>{{ Velo.getLibelle()}}</td>
+                            <td> <img src="{{  asset ('image/'~Velo.Image)}}" alt="" style="width: 200px;height: 200px"/></td>
+                            <td>{{ Velo.getCategorieVelo()}}</td>
+                            <td>{{ Velo.getMarque()}}</td>
+                            <td>{{ Velo.getPrix()}}</td>
+                            <td>{{ Velo.getQte()}}</td>
+                            <td>{{ Velo.getCouleur()}}</td>
+                            <td>{{ Velo.getDescription()}}</td>
+                            <td>{{ Velo.getEtat()}}</td>
+                            <td>{{ Velo.getIdUser() }}</td>
+                            <td>
+                                <a href ="{{ path('affichemodif',{'id': Velo.getId()}) }}"><button class="btn btn-primary btn-xs" ><i class="fa fa-pencil"></i></button></a>
+                            </td>
+                            <td>
+                                <a  onclick="succes()" href="{{ path('deletevelo',{'id':Velo.getId()}) }}" ><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <script>
+                            function succes() {
+                                alert('supprimé avec succes')
+                            }</script>
+                        {% endfor %}
+                    </table>
+                </div>
+                <!-- /content-panel -->
+            </div>
+
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+    {% endblock %}
+

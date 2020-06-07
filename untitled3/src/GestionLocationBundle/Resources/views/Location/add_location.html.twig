@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ asset('bundles/foscomment/css/comments.css') }}" type="text/css" />
+    <section class="page-title-section overlay" data-background="{{ asset('images/backgrounds/page-title.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="list-inline custom-breadcrumb">
+                        <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="courses.html">Location</a></li>
+                        <li class="list-inline-item text-white h3 font-secondary "></li>
+                    </ul>
+                    <p class="text-lighten">Nous vous Offrons nos meilleurs vélo disponible a louer pour une courte ou longue durée</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 mb-5">
+                    <img class="img-fluid w-100" src="{{ asset('image/'~Velo.Image) }}" alt="teacher">
+                </div>
+                <div class="col-md-6 mb-5">
+                    <h3>{{ Velo.getLibelle() }}</h3>
+                    <h6 class="text-color">{{ Velo.getMarque() }}</h6>
+                    <p class="mb-5">{{ Velo.getDescription() }}</p>
+
+                    <form action="{{ path('add_location',{'idvelo' : Velo.getId() }) }}" method="POST">
+                    <div class="row">
+                            <div class="col-sm">
+                                <label class="mt-2"><label for="date_de_debut" class="required">{{ form_label(form.dateDebut) }}</label></label>
+                                {{ form_widget(form.dateDebut, {'attr' : {'class': 'form-control'}}) }}
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label class="mt-2"><label for="date_de_fin" class="required"></label>{{ form_label(form.dateFin)}}</label>
+                            {{ form_widget(form.dateFin, {'attr' : {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 mb-5" id="priceContainer">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm mt-3">
+                           <a style><button type="submit" class="btn btn-primary btn-sm">Louer</button></a>
+                        </div>
+                    </div>
+                        </form>
+
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    {% include '@FOSComment/Thread/async.html.twig' with {'id': Velo.getLibelle() } %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#gestionlocationbundle_location_dateFin").on('input',function() {
+
+                var date1 = new Date($('#gestionlocationbundle_location_dateDebut').val());
+                alert(date1);
+                var date2 = new Date($('#gestionlocationbundle_location_dateFin').val());
+                alert(date2);
+                var Difference_In_Time = date2.getTime() - date1.getTime();
+
+                var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+                var price = Difference_In_Days * {{ Velo.getPrix() }};
+
+                var priceselector = $("#priceContainer").html();
+
+                $("#priceContainer").html('<label class="mt-5"><label for="date_de_fin" class="required"></label>Prix : '+price+'</label>')
+
+            });
+        });
+    </script>
+
+{% endblock %}

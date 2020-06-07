@@ -1,0 +1,66 @@
+{% extends 'base2.html.twig' %}
+{% block content %}
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="col-md-12">
+                <div class="content-panel">
+                    <h4><i class="fa fa-angle-right"></i>Entretiens</h4><hr><table class="table table-striped table-advance table-hover">
+
+
+                        <thead>
+                        <tr>
+                            <th>Nom du cycliste</th>
+                            <th>Prénom du cycliste</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Email</th>
+                            <th>Adresse</th>
+                            <th>Image</th>
+                            <th>Velo</th>
+                            <th>Marque</th>
+                            <th>Description</th>
+                            <th>Etat</th>
+                            <th>Modifier</th>
+                            <th>Supprimer</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for Entretien in Entretiens %}
+                        <tr class="gradeX">
+                            <td>{{ Entretien.getCycliste().getNomMembre()}}</td>
+                            <td>{{ Entretien.getCycliste().getPrenomMembre()}}</td>
+                            <td>{{ Entretien.getUser().getNomMembre()}}</td>
+                            <td>{{ Entretien.getUser().getPrenomMembre()}}</td>
+                            <td>{{ Entretien.getUser().getEmail()}}</td>
+                            <td>{{ Entretien.getUser().getAdresseMembre()}}</td>
+                            <td> <img src="{{  asset ('image/'~Entretien.getVelo().Image)}}" alt="" style="width: 200px;height: 200px"/></td>
+                            <td>{{ Entretien.getVelo().getLibelle()}}</td>
+                            <td>{{ Entretien.getVelo().getMarque()}}</td>
+                            <td>{{ Entretien.getVelo().getDescription()}}</td>
+                            <td>{{ Entretien.getEtat()}}</td>
+                            <td>
+                                <a href ="{{ path('detail_Entretien',{'id': Entretien.getId()}) }}"><button class="btn btn-primary btn-xs" ><i class="fa fa-pencil"></i></button></a>
+                            </td>
+                            <td>
+                                <a  onclick="succes()" href="{{ path('delete_Entretien',{'id':Entretien.getId()}) }}" ><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+                <!-- /content-panel -->
+            </div>
+
+            <!-- /row -->
+        </section>
+        <!-- /wrapper -->
+    </section>
+{% endblock %}
+

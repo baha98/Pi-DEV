@@ -1,0 +1,48 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+<div class="row">
+    <div class="col-sm">
+        {{ form_errors(form.email) }}
+        <label class="mt-2">{{ form_label(form.email)}}</label>
+        {{  form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+
+        <label class="mt-2">{{ form_label(form.username) }}</label>
+        {{  form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+        <label class="mt-2">{{ form_label(form.current_password) }}</label>
+        {{ form_widget(form.current_password, {'attr': {'class': 'form-control'}}) }}
+        <label class="mt-2">{{ form_label(form.Adresse_membre) }}</label>
+        {{ form_widget(form.Adresse_membre, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="col-sm">
+        <div class="row">
+            <div class="col-sm">
+                <label class="mt-2">{{ form_label(form.nom_membre) }}</label>
+                {{ form_widget(form.nom_membre, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <label class="mt-2">{{ form_label(form.prenom_membre) }}</label>
+                {{ form_widget(form.prenom_membre, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <label class="mt-2">{{ form_label(form.dateNais_membre) }}</label>
+                {{ form_widget(form.dateNais_membre, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="col-sm">
+                <label class="mt-2">{{ form_label(form.NumTel_Membre) }}</label>
+                {{ form_widget(form.NumTel_Membre, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="row mt-5 ml-5">
+            <div class="col-sm">
+                <input class="btn btn-primary" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+            </div>
+        </div>
+
+    </div>
+</div>
+{{ form_end(form) }}

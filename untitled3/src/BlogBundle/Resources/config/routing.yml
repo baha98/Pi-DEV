@@ -1,0 +1,39 @@
+blog_homepage:
+    path:     /
+    defaults: { _controller: BlogBundle:Default:index }
+
+blog_create:
+    path:     /create
+    defaults: { _controller: BlogBundle:Post:createPost }
+
+blog_add:
+    path:     /add
+    defaults: {_controller: BlogBundle:Post:createPost }
+
+blog_show_front:
+    path:     /articles
+    defaults: { _controller: BlogBundle:Post:showPost }
+
+blog_details_show:
+    path:     /details/{id}
+    defaults: { _controller: BlogBundle:Post:showDetails }
+
+blog_show_back:
+    path:     /posts
+    defaults: { _controller: BlogBundle:Post:showPostBack}
+
+blog_delete:
+    path:     /delete/{id}
+    defaults: { _controller: BlogBundle:Post:deletePost}
+
+blog_update:
+    path:     /update/{id}
+    defaults: { _controller: BlogBundle:Post:updatePost }
+
+blog_aimer:
+    path:     /aimer/{id}
+    defaults: { _controller: BlogBundle:Post:aimerpost }
+
+blog_pas_aimer:
+    path:     /pasaimer/{id}
+    defaults: { _controller: BlogBundle:Post:pasaimerpost }

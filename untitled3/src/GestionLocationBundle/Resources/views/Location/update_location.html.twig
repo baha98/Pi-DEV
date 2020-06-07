@@ -1,0 +1,90 @@
+{% extends 'base2.html.twig' %}
+
+{% block content %}
+
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="form-panel">
+                <h4 class="mb"><i class="fa fa-angle-right"></i> Modifier Location</h4>
+                <form class="form-horizontal style-form" action="{{ path('update_submit_location',{'id' : Location.getId()}) }}" method="POST">
+                    <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">Nom</label>
+                        <div class="col-lg-10">
+                            <p class="form-control-static">{{ Location.getIdUser().getNomMembre() }}</p>
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">Prénom</label>
+                        <div class="col-lg-10">
+                            <p class="form-control-static">{{ Location.getIdUser().getPrenomMembre() }}</p>
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">Email</label>
+                        <div class="col-lg-10">
+                            <p class="form-control-static">{{ Location.getIdUser().getEmail() }}</p>
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">Adresse</label>
+                        <div class="col-lg-10">
+                            <p class="form-control-static">{{ Location.getIdUser().getAdresseMembre() }}</p>
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">Image</label>
+                        <div class="col-lg-10">
+                            <img src="{{  asset ('image/'~Location.getIdVelo().Image)}}" alt="" style="width: 200px;height: 200px"/>
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">Velo</label>
+                        <div class="col-lg-10">
+                            <p class="form-control-static">{{ Location.getIdVelo().getLibelle() }}</p>
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">Marque</label>
+                        <div class="col-lg-10">
+                            <p class="form-control-static">{{ Location.getIdVelo().getMarque() }}</p>
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">Description</label>
+                        <div class="col-lg-10">
+                            <p class="form-control-static">{{ Location.getIdVelo().getDescription() }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Date de debut</label>
+                        <div class="col-md-3 col-xs-11">
+                            <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="{{ Location.dateDebut|date('m/d/y') }}" class="input-append date dpYears">
+                                <input type="text" readonly="" name="datedebut" value="{{ Location.dateDebut|date('m/d/y') }}" size="16" class="form-control">
+                                <span class="input-group-btn add-on">
+                        <button class="btn btn-theme" type="button"><i class="fa fa-calendar"></i></button>
+                        </span>
+                            </div>
+                            <span class="help-block">Select date</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Date de fin</label>
+                        <div class="col-md-3 col-xs-11">
+                            <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="{{ Location.dateFin|date('m/d/y') }}" class="input-append date dpYears">
+                                <input type="text" readonly="" name="datefin" value="{{ Location.dateFin|date('m/d/y') }}" size="16" class="form-control">
+                                <span class="input-group-btn add-on">
+                        <button class="btn btn-theme" type="button"><i class="fa fa-calendar"></i></button>
+                        </span>
+                            </div>
+                            <span class="help-block">Select date</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-theme03"><i class="fa fa-check"></i>Save</button>
+                </form>
+                <a href="{{ path('pdf_location',{'id':Location.getId()}) }}"><button class="btn btn-theme03" ><i class="fa fa-check"></i>Imprimer</button></a>
+            </div>
+        </section>
+    </section>
+
+{% endblock %}

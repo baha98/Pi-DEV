@@ -1,0 +1,129 @@
+{% extends 'base2.html.twig' %}
+{% block content %}
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="form-panel">
+                <h4 class="mb"><i class="fa fa-angle-right"></i> Modifier Velo</h4>
+                <div class="card-body">
+                    <form action="../modifevelo" method="post">
+                        <div class="name" hidden>IdProduit</div>
+                        <div class="value" hidden>
+                            <input class="input--style-6" required type="text" name="IdProduit" style="width: 200px" value="{{ Velo.getId() }}">
+                        </div>
+                        <div class="form-row">
+                            <div style="float: left;margin: 50px">
+                                <div class="name">Libelle</div>
+                                <div class="value">
+                                    <input class="input--style-6" required type="text" name="libelle" value="{{ Velo.getLibelle() }}">
+                                </div>
+                            </div>
+                            <div style="float: left;margin: 50px">
+                                <div class="name">Marque</div>
+                                <div class="value">
+                                    <select style="width: 200px;height: 40px" name="marque" value="{{ Velo.getMarque() }}">
+                                        <option value="val1">ABUS</option>
+                                        <option value="val2">BIKESTER</option>
+                                        <option value="val3">CATEYE</option>
+                                        <option value="val4">DELTA</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div style="float: left;margin: 50px">
+                                <div class="name">Prix</div>
+                                <div class="value">
+                                    <input class="input--style-6" required type="text" name="prix" style="width: 200px" value="{{ Velo.getPrix() }}">
+                                </div>
+                            </div>
+                            <div style="float: left;margin: 50px">
+                                <div class="name">Quantité</div>
+                                <input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small" style="width: 200px" value="{{ Velo.getQte() }}">
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div style="float:left;margin: 50px">
+                                <div class="name">Couleur</div>
+                                <div class="value">
+                                    <select style="width: 200px;height: 40px" name="couleur" value="{{ Velo.getCouleur() }}">
+                                        <option value="val1">Rouge</option>
+                                        <option value="val2">Blanc</option>
+                                        <option value="val3">Noir</option>
+                                        <option value="val4">Rose</option>
+                                        <option value="val1">Gris</option>
+                                        <option value="val2">Marron</option>
+                                        <option value="val3">Bleu</option>
+                                        <option value="val4">Orangé</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="float:left;margin: 50px">
+                                <div class="name" value="{{ Velo.Etat}}">Etat </div>
+                                <div class="value">
+                                    <select style="width: 200px;height: 40px" name="etat">
+                                        <option value="val1">A Vendre</option>
+                                        <option value="val2">A Louer</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div style="float: left;margin: 50px">
+                                <div class="name">Staff</div>
+                                <div class="value">
+                                    <input class="input--style-6" type="text" name="staff" style="width: 200px" value="{{ Velo.getidUser() }}">
+                                </div>
+                            </div>
+                            <div style="float: left;margin: 50px">
+                                <div class="name">Categorie</div>
+                                <div class="value">
+                                    <select style="width: 200px;height: 40px" name="categorie" required value="{{ Velo.getcategorieVelo() }}">
+                                        <option value="VELOS DE VILLE">VELOS DE VILLE</option>
+                                        <option value="VELOS DE ROUTE">VELOS DE ROUTE</option>
+                                        <option value="VELOS DE TREKKING">VELOS DE TREKKING</option>
+                                        <option value="VELOS ELECTRIQUES">VELOS ELECTRIQUES</option>
+                                        <option value="VELOS ENFANT & ADOS">VELOS ENFANT & ADOS</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Description</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <textarea class="textarea--style-6" name="description" placeholder="Description de produit" >{{ Velo.getDescription() }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Import image</div>
+                            <div class="value">
+                                <div class="input-group js-input-file">
+                                    <input class="input-file" type="file" name="file" id="file">
+                                    <label class="label--file" for="file">importer image</label>
+                                    <span class="input-file__info">Aucune image importée</span>
+                                </div>
+                                <div class="label--desc">Importer image</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn--radius-2 btn--blue-2" type="submit" name="modifier" onclick="succes()">Modifier</button>
+                        </div>
+                    </form>
+                    <script>
+                        function succes() {
+                            alert('modifiee avec succes')
+                        }</script>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Jquery JS-->
+{% endblock %}
+
+

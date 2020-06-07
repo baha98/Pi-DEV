@@ -1,0 +1,8 @@
+first_homepage:
+    path:     /
+    defaults: { _controller: GestionUserBundle:Default:index }
+
+redirect:
+    path:     /home
+    defaults: { _controller: GestionUserBundle:Security:redirect }
+

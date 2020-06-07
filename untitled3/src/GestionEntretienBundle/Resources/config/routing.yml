@@ -1,0 +1,19 @@
+gestion_entretien_homepage:
+    path:     /
+    defaults: { _controller: GestionEntretienBundle:Default:index }
+
+show_entretien:
+    path:     /entretiens
+    defaults: { _controller: GestionEntretienBundle:Entretien:showentretien }
+
+detail_Entretien:
+    path:     /entretien/detail/{id}
+    defaults: { _controller: GestionEntretienBundle:Entretien:showentretiendetails }
+
+delete_Entretien:
+    path:     /entretien/delete/{id}
+    defaults: { _controller: GestionEntretienBundle:Entretien:deleteentretien }
+
+update_Entretien:
+    path:       /entretien/update/{id}
+    defaults: { _controller: GestionEntretienBundle:Entretien:updateentretien }

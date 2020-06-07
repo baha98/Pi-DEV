@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+    {% block content %}
+        <section class="page-title-section overlay" data-background="{{ asset('images/backgrounds/page-title.jpg') }}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <ul class="list-inline custom-breadcrumb">
+                            {% set currentPath = path(app.request.attributes.get('_route'),
+                                app.request.attributes.get('_route_params')) %}
+
+                            {% if currentPath == "/untitled3/web/app_dev.php/login" %}
+                            <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="courses.html">Login</a></li>
+                            <li class="list-inline-item text-white h3 font-secondary "></li>
+                        </ul>
+                        <p class="text-lighten">Veuillez entrez votre username et mot de passe</p>
+                            {% elseif currentPath == "/untitled3/web/app_dev.php/register/" %}
+                                <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="courses.html">Register</a></li>
+                                <li class="list-inline-item text-white h3 font-secondary "></li>
+                                </ul>
+                                <p class="text-lighten">Veuillez remplire le formulaire pour créer un compte</p>
+                            {% elseif currentPath == "/untitled3/web/app_dev.php/profile/" %}
+                                <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="courses.html">profile</a></li>
+                                <li class="list-inline-item text-white h3 font-secondary "></li>
+                                </ul>
+                                <p class="text-lighten">Voici vos informations personelles</p>
+                            {% elseif currentPath == "/untitled3/web/app_dev.php/profile/edit" %}
+                                <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="courses.html">Modifier profile</a></li>
+                                <li class="list-inline-item text-white h3 font-secondary "></li>
+                                </ul>
+                                <p class="text-lighten">Veuillez remplire le formulaire pour modifier vos informations</p>
+                            {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="row">
+                <div class="col-sm">
+
+                </div>
+                <div class="col-sm ">
+                    <div>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        {% endif %}
+                    </div>
+
+                    {% if app.request.hasPreviousSession %}
+                        {% for type, messages in app.session.flashbag.all() %}
+                            {% for message in messages %}
+                                <div class="flash-{{ type }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+
+                    <div>
+                        {% block fos_user_content %}
+                        {% endblock fos_user_content %}
+                    </div>
+                </div>
+                <div class="col-sm ">
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,39 @@
+gestion_location_homepage:
+    path:     /
+    defaults: { _controller: GestionLocationBundle:Default:index }
+
+add_location:
+    path:     /addLocation/{idvelo}
+    defaults: { _controller: GestionLocationBundle:Location:addLocation }
+
+show_location:
+    path:     /showLocation
+    defaults: { _controller: GestionLocationBundle:Location:showLocation }
+
+update_location:
+    path:     /updateLocation/{id}
+    defaults: { _controller: GestionLocationBundle:Location:updatelocation }
+
+update_submit_location:
+    path:     /updatesubmitLocation/{id}
+    defaults: { _controller: GestionLocationBundle:Location:updatesubmitlocation }
+
+front_show_location:
+    path:     /products
+    defaults: { _controller: GestionLocationBundle:Location:frontshowLocation }
+
+show_add_location:
+    path:     /location/{id}
+    defaults: { _controller: GestionLocationBundle:Location:showaddLocation }
+
+delete_location:
+    path:     /delete/{id}
+    defaults: { _controller: GestionLocationBundle:Location:deletelocation }
+
+calendrier_location:
+    path:     /Calendar
+    defaults: { _controller: GestionLocationBundle:Location:calendar }
+
+pdf_location:
+    path:     /pdf/{id}
+    defaults: { _controller: GestionLocationBundle:Location:pdf }

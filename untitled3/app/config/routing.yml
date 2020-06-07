@@ -1,0 +1,39 @@
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
+
+gestion_entretien:
+    resource: "@GestionEntretienBundle/Resources/config/routing.yml"
+    prefix:   /gestionEntretien
+
+gestion_produit:
+    resource: "@GestionProduitBundle/Resources/config/routing.yml"
+    prefix:   /gestionVelo
+
+gestion_location:
+    resource: "@GestionLocationBundle/Resources/config/routing.yml"
+    prefix:   /gestionLocation
+
+gestionUser:
+    resource: "@GestionUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html }
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+adesigns_calendar:
+    resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
