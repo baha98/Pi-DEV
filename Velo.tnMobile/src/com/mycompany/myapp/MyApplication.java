@@ -6,6 +6,7 @@ import Entities.LignesCommande;
 import Entities.Paiement;
 import Gui.AjoutPaiement;
 import Gui.AfficherProduits;
+import Gui.Stat;
 import Services.ServiceCommande;
 import Services.ServiceLignesCommande;
 import static com.codename1.ui.CN.*;
@@ -58,20 +59,7 @@ public class MyApplication {
     
     public void start() {
        new AfficherProduits().show();
-      /* for(LignesCommande c :ServiceLignesCommande.getInstance().getAllTasks())
-        { 
-            
-             System.out.println(c);
-           
-        }*/
-      
-      
-   
-      
-      
-                    
-      
-     
+
      
     }
 

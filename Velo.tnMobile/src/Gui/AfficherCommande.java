@@ -12,6 +12,7 @@ import Services.ServiceProduit;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.components.ImageViewer;
 import com.codename1.ui.Button;
+import com.codename1.ui.ComboBox;
 import com.codename1.ui.Container;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.FontImage;
@@ -20,6 +21,8 @@ import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.URLImage;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
@@ -45,10 +48,32 @@ public class AfficherCommande extends Form {
         setTitle("Mes Commandes ");
         this.getAllStyles().setBgImage(theme.getImage("banner-1.jpg"));   
         
+         setLayout(BoxLayout.y());
+        Container ctn1= new Container(BoxLayout.y());
+        Style labelicon = UIManager.getInstance().getComponentStyle("Label");
+        labelicon.setFgColor(ColorUtil.rgb(255, 165, 0));
+        Label Stat =  new Label("Mes Stats de mes commandes lors l'année",FontImage.createMaterial(FontImage.MATERIAL_INSERT_CHART, labelicon));
+        Stat.getAllStyles().setFgColor(ColorUtil.rgb(255, 255, 255));
+        ctn1.add(Stat);
+        
+        ComboBox cb = new ComboBox();
+        for(int i=2010;i<=2030;i++)
+        {    
+        cb.addItem(String.valueOf(i));
+        }
+        
+        cb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                new Stat(Integer.parseInt(cb.getSelectedItem().toString()),current).show();
+                
+            }
+        });
+        ctn1.add(cb);
 
         
+        this.add(ctn1);
     
-         setLayout(BoxLayout.y());
          for(Commande c :ServiceCommande.getInstance().getAllTasks())
         { 
             

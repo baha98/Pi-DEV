@@ -80,9 +80,7 @@ public class ServiceCommande {
         return resultOK;
     }
       
-      
-      
-      
+
     public ArrayList<Commande> parseCommande(String jsonText){
         try {
             commandes=new ArrayList<>();
@@ -141,6 +139,60 @@ public class ServiceCommande {
     } 
     
     
+     public ArrayList<Commande> parseCommandeStat(String jsonText){
+        try {
+            commandes=new ArrayList<>();
+            JSONParser j = new JSONParser();
+
+            Map<String,Object> tasksListJson = j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
+
+            List<Map<String,Object>> list = (List<Map<String,Object>>)tasksListJson.get("root");
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+          
+            for(Map<String,Object> obj : list){
+                //Création des tâches et récupération de leurs données
+                Commande c = new Commande();
+                float id = Float.parseFloat(obj.get("IdCommande").toString());
+                c.setId_commande((int)id);
+                c.setPrix_total(Float.parseFloat(obj.get("PrixTotal").toString()));
+                c.setEtat_commande((int)Float.parseFloat(obj.get("EtatCommande").toString()));
+                
+                    java.util.LinkedHashMap datefin=(java.util.LinkedHashMap)obj.get("DateCommande");
+                     Double date_f=(Double)datefin.get("timestamp");
+                     
+                     Date date_fin=new Date((date_f.longValue())*1000);
+                 c.setDate_commande(date_fin);
+                c.setId_user(2);
+                commandes.add(c);
+                
+              
+            }
+          
+            
+            
+        } catch (IOException ex) {
+            
+        }
+        return commandes;
+    }
+    
+    public ArrayList<Commande> getCommandeMonth(String date1,String date2,int iduser){
+        String url = Statics.BASE_URL+"/Commande/StatMobile?date1="+date1+"&date2="+date2+"&id=2";
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                commandes = parseCommandeStat(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        
+        return commandes;
+    } 
+    
+    
     public int parseLastCommande(String jsonText) throws IOException{
         
             int idmax=0;
@@ -152,7 +204,7 @@ public class ServiceCommande {
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
             
             for(Map<String,Object> obj : list){
-                //Création des tâches et récupération de leurs données
+                
                 
                 float id = Float.parseFloat(obj.get("IdCommande").toString());
                 if(idmax<(int)id)

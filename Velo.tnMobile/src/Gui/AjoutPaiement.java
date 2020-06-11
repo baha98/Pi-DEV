@@ -37,6 +37,8 @@ import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.spinner.Picker;
 import com.codename1.ui.util.Resources;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 
 
@@ -116,8 +118,10 @@ public class AjoutPaiement extends Form   {
                      {
                          str +=Visa.getText();
                         }
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss"); 
+                    String datevalue=dateFormat.format(DateExpiration.getDate());
                 
-                if ((NumCarte.getText().length()==0)||(CodeSec.getText().length()==0) || str.length()==0 )
+                if ((NumCarte.getText().length()==0)||(CodeSec.getText().length()==0) || str.length()==0 || datevalue.length()==0)
                     Dialog.show("Alert","Please fill all the fields","OK","Close");
                 else
                 {
@@ -135,13 +139,7 @@ public class AjoutPaiement extends Form   {
                             }
                               
                             Dialog.show("Confirmation","Paiement Effectué","OK","Close");
-                            //vider Panier
-                         /*    try {
-                          db.execute("DELETE FROM panier");
-                          db.close();
-                         } catch (IOException ex) {
-                 
-                                }*/
+                          
                         
                        //SMS API MOBILE 
                        String accountSID = "AC482699b3a5fadada07b4fb6098226a72";
@@ -149,10 +147,10 @@ public class AjoutPaiement extends Form   {
                        String fromPhone = "+18329908993";
                        Response<Map> result = Rest.post("https://api.twilio.com/2010-04-01/Accounts/" + accountSID + "/Messages.json").
                          queryParam("To", "+21620566666").
-                            queryParam("From", fromPhone).
-                            queryParam("Body", "").basicAuth(accountSID, authToken).getAsJsonMap();
+                          queryParam("From", fromPhone).
+                          queryParam("Body", "Votre Paiement effectué").basicAuth(accountSID, authToken).getAsJsonMap();
                          
-                            
+                            new AfficherProduits().show();
                         
                         
                         }

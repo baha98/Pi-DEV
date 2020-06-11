@@ -40,6 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 /**
  *
  * @author ASUS
@@ -130,7 +131,14 @@ public class AfficherPanier extends Form {
                 Commande c = new Commande(Float.parseFloat(prixTotal));
                 if( ServiceCommande.getInstance().AjouterCommande(c,getAllProducts()))
                     if(Dialog.show("Confirmation","Commande Confirmé","OK","Close"))
-                    {
+                    {        Media m;
+                    try {
+                        m = MediaManager.createMedia("audio/done.mp3", false);
+                        m.play();
+                    } catch (IOException ex) {
+                        
+                    }
+                         
                         int idcommande=ServiceCommande.getInstance().getLastId();
                        
                         new AjoutPaiement(idcommande).show();
